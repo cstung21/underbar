@@ -163,17 +163,9 @@
     // the members, it also maintains an array of results.
     let returnArray = [];
 
-    if (Array.isArray(collection)) {
-      for (let i = 0; i < collection.length; i++) {
-        let value = collection[i];
-        returnArray.push(iterator(value));
-      }
-    } else {
-      for (let key in collection) {
-        let value = collection[key];
-        returnArray.push(iterator(value));
-      }
-    }
+    _.each(collection, function(value) {
+      returnArray.push(iterator(value));
+    })
     return returnArray;
   };
 
